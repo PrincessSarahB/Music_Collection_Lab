@@ -20,22 +20,23 @@ attr_accessor :title, :genre, :artist_id
     @id = result[0]["id"].to_i
   end
   #
-  # def Album.all()
-  #   sql = "SELECT * FROM albums"
-  #   orders = SqlRunner.run(sql)
-  #   return orders.map{|order| self.new(order)}
-  # end
+  def Album.all()
+    sql = "SELECT * FROM albums;"
+    albums = SqlRunner.run(sql)
+    return albums.map{|album| self.new(album)}
+  end
   #
-  # def delete()
-  #   sql = "DELETE FROM albums WHERE id = $1"
-  #   values = [@id]
-  #   SqlRunner.run(sql, values)
-  # end
+  def delete()
+    sql = "DELETE FROM albums WHERE id = $1;"
+    values = [@id]
+    SqlRunner.run(sql, values)
+  end
   #
-  # def Album.delete_all()
-  #   sql = "DELETE FROM albums"
-  #   SqlRunner.run(sql)
-  # end
-  #
+  def Album.delete_all()
+    sql = "DELETE FROM albums;"
+    SqlRunner.run(sql)
+  end
+
+
 
 end
