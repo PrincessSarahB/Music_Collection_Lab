@@ -38,5 +38,8 @@ attr_accessor :title, :genre, :artist_id
   end
 
 
+def show_artist()
+
+end
 
 end

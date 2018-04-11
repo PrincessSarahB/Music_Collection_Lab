@@ -34,13 +34,13 @@ def delete()
 end
 
 def list_albums()
-sql = "SELECT * FROM albums WHERE artist_id = $1 ORDER BY quantity;"
+sql = "SELECT * FROM albums WHERE artist_id = $1;"
 values = [@id]
-SqlRunner.run(sql, values)
-return albums.map {|album| Artist.new(album)}
+albums = SqlRunner.run(sql, values)
+return albums.map {|album| Album.new(album)}
 
 end
-#
+
 def self.delete_all()
   sql = "DELETE FROM artists;"
   SqlRunner.run(sql)
