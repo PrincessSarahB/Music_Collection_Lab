@@ -39,7 +39,10 @@ attr_accessor :title, :genre, :artist_id
 
 
 def show_artist()
-
+sql = "SELECT * FROM artists WHERE id = $1;"
+values = [id]
+artists = SqlRunner.run(sql, values)
+return artists.map {|artist| Artist.new(artist)}
 end
 
 end
