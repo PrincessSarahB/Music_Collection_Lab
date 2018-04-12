@@ -53,4 +53,13 @@ def update()
   SqlRunner.run(sql, values)
 end
 
+def self.find_by_id(id)
+  sql = "SELECT * FROM albums WHERE id= $1;"
+  values = [id]
+  results = SqlRunner.run(sql, values)
+  album = results[0]
+  album_id = Album.new(album)
+  return album_id
+end
+
 end
